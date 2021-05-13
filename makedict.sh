@@ -5,26 +5,24 @@ lwdict3=/tmp/ramdisk/3lw.txt
 lwdict4=/tmp/ramdisk/4lw.txt
 lwdict5=/tmp/ramdisk/5lw.txt
 
-#rm -f /tmp/ramdisk/*lw.txt
-#rm -f /tmp/ramdisk/proc/*
-#while read -r line
-#do
-#	if  [ ${#line} == 3 ]
-#	then
-#		echo $line >> "$lwdict3"
-#	fi
-#
-#	if [ ${#line}  == 4 ]
-#	then
-#		echo $line >> "$lwdict4"
-#	fi
-#	
-#	if [ ${#line}  == 5 ]
-#	then
-#		echo $line  >> "$lwdict5"
-#	fi
-#	
-#done < "$dictfile"
+while read -r line
+do
+	if  [ ${#line} == 3 ]
+	then
+		echo $line >> "$lwdict3"
+	fi
+
+	if [ ${#line}  == 4 ]
+	then
+		echo $line >> "$lwdict4"
+	fi
+	
+	if [ ${#line}  == 5 ]
+	then
+		echo $line  >> "$lwdict5"
+	fi
+	
+done < "$dictfile"
 
 #echo "Done creating dictionary files"
 i=0

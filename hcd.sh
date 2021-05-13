@@ -1,7 +1,7 @@
 #!/bin/bash
-#mkdir /tmp/ramdisk
-#mount -t tmpfs -o size=2048m tmpfs /tmp/ramdisk
-#mkdir /tmp/ramdisk/proc
+mkdir /tmp/ramdisk
+mount -t tmpfs -o size=2048m tmpfs /tmp/ramdisk
+mkdir /tmp/ramdisk/proc
 while true
 do
 	dir=/tmp/ramdisk/proc/*.txt
@@ -18,7 +18,7 @@ do
 		done
 		FILESIZE=`stat -c%s /tmp/ramdisk/proc/coalfile.out`
 		if (( $FILESIZE > 0)) ; then
-			taskset -c 5 hashcat -w 1 -O -m 2500 -a 0 ./eeout.hccapx /tmp/ramdisk/proc/coalfile.out 
+			taskset -c 5 hashcat -w 1 -O -m 2500 -a 0 ./router.hccapx /tmp/ramdisk/proc/coalfile.out 
 			rm /tmp/ramdisk/proc/coalfile.out >> /dev/null
 		fi
 done
